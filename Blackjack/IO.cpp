@@ -19,13 +19,7 @@ namespace blackjack
 			if (!ReadLine(playerInput) || playerInput < 1 || playerInput > _maxValue)
 			{
 				std::cout << "Invalid Input.\n";
-
-				// Clear any error flags in the input stream, otherwise we can't interact with it (like with std::cin.ignore)
-				std::cin.clear();
 				
-				// Flush the input stream, skipping to the next new line.
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
 				// Reset the player's input, so that the while doesn't break when a type-valid input is out of range.
 				playerInput = 0;
 			}
@@ -48,7 +42,7 @@ namespace blackjack
 	{
 		char intArray[c_maxInputLength];
 
-		auto lineRead = false;
+		auto hasBreak = false;
 		for(auto i = 0; i < c_maxInputLength; i++)
 		{
 			const auto in = std::cin.get();
@@ -57,7 +51,7 @@ namespace blackjack
 			if(in == '\n')
 			{
 				intArray[i] = 0;
-				lineRead = true;
+				hasBreak = true;
 				
 				break;
 			}
@@ -65,14 +59,20 @@ namespace blackjack
 			// If the current character isn't a number value, immediately invalidate the input.
 			if (in < '0' || in > '9')
 			{
-				return false;
+				break;
 			}
 			intArray[i] = (char) in;
 		}
 
 		// If the line was longer than c_maxInputLength, invalidate the input.
-		if(!lineRead)
+		if(!hasBreak)
 		{
+			// Clear any error flags in the input stream, otherwise we can't interact with it (like with std::cin.ignore)
+			std::cin.clear();
+
+			// Flush the input stream, skipping to the next new line.
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			
 			return false;
 		}
 
