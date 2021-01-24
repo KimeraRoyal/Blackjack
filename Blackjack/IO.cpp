@@ -38,4 +38,9 @@ namespace blackjack
 	{
 		return GetInput(_options, "an option", "(", ")", "");
 	}
+
+	int GetBet(const int _maxValue)
+	{
+		return GetInput(_maxValue, "a value", "\x9C", "", "\x9C");
+	}
 }

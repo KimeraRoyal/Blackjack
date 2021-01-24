@@ -126,13 +126,6 @@ namespace blackjack
 	/// </summary>
 	/// <param name="_game">The game instance.</param>
 	void DisplayGameInformation(Game* _game);
-
-	/// <summary>
-	/// A shorthand to GetInput that displays "Please select a value from £1 to £max: £_"
-	/// </summary>
-	/// <param name="_maxValue">The maximum amount the player can bet.</param>
-	/// <returns></returns>
-	int GetBet(int _maxValue);
 }
 
 #endif

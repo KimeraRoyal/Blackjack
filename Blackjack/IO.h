@@ -22,6 +22,13 @@ namespace blackjack
 	/// <param name="_options">The amount of options that are available.</param>
 	/// <returns></returns>
 	int GetOption(int _options);
+
+	/// <summary>
+	/// A shorthand to GetInput that displays "Please select a value from £1 to £max: £_"
+	/// </summary>
+	/// <param name="_maxValue">The maximum amount the player can bet.</param>
+	/// <returns>The chosen bet.</returns>
+	int GetBet(int _maxValue);
 }
 
 #endif

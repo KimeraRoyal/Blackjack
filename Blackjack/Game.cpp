@@ -308,9 +308,4 @@ namespace blackjack
 		// One line break, just to neatly format the application.
 		std::cout << "\n";
 	}
-
-	int GetBet(const int _maxValue)
-	{
-		return GetInput(_maxValue, "a value", "\x9C", "", "\x9C");
-	}
 }
