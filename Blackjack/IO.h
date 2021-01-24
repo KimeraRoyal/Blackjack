@@ -5,6 +5,8 @@
 
 namespace blackjack
 {
+	constexpr auto c_maxInputLength = 16;
+	
 	/// <summary>
 	/// Get and validate the user's input as an integer from 1 to a maximum value (inclusive).
 	/// </summary>
@@ -29,6 +31,14 @@ namespace blackjack
 	/// <param name="_maxValue">The maximum amount the player can bet.</param>
 	/// <returns>The chosen bet.</returns>
 	int GetBet(int _maxValue);
+
+	/// <summary>
+	/// Read whatever the user has put into the input stream and validate whether or not is an integer value.<br>
+	/// Will only read up to "c_maxInputLength" characters.
+	/// </summary>
+	/// <param name="o_returnValue">Integer to store input in, if the read is successful.</param>
+	/// <returns>Returns true if the user entered a valid integer.</returns>
+	bool ReadLine(int& o_returnValue);
 }
 
 #endif

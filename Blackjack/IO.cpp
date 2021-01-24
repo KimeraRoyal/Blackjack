@@ -16,7 +16,7 @@ namespace blackjack
 
 			// If the value that is read by std::cin is invalid, i.e. a user entering "a", it will return false.
 			// This can just be mixed with an OR of the range validation.
-			if (!(std::cin >> playerInput) || playerInput < 1 || playerInput > _maxValue)
+			if (!ReadLine(playerInput) || playerInput < 1 || playerInput > _maxValue)
 			{
 				std::cout << "Invalid Input.\n";
 
@@ -42,5 +42,41 @@ namespace blackjack
 	int GetBet(const int _maxValue)
 	{
 		return GetInput(_maxValue, "a value", "\x9C", "", "\x9C");
+	}
+
+	bool ReadLine(int& o_returnValue)
+	{
+		char intArray[c_maxInputLength];
+
+		auto lineRead = false;
+		for(auto i = 0; i < c_maxInputLength; i++)
+		{
+			const auto in = std::cin.get();
+
+			// If the current character is a newline, break the for loop and null-terminate the int array.
+			if(in == '\n')
+			{
+				intArray[i] = 0;
+				lineRead = true;
+				
+				break;
+			}
+			
+			// If the current character isn't a number value, immediately invalidate the input.
+			if (in < '0' || in > '9')
+			{
+				return false;
+			}
+			intArray[i] = (char) in;
+		}
+
+		// If the line was longer than c_maxInputLength, invalidate the input.
+		if(!lineRead)
+		{
+			return false;
+		}
+
+		o_returnValue = atoi(intArray);
+		return true;
 	}
 }
