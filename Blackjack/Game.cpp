@@ -187,12 +187,6 @@ namespace blackjack
 		system("CLS");
 		std::cout << "Dealer Draws...\n\n";
 
-		_game->m_players[PLAYER_DEALER]->m_hand->m_cards[0]->m_rank = RANK_SEVEN;
-		_game->m_players[PLAYER_DEALER]->m_hand->m_cards[1]->m_rank = RANK_ACE;
-
-		_game->m_players[PLAYER_PLAYER]->m_hand->m_cards[0]->m_rank = RANK_SEVEN;
-		_game->m_players[PLAYER_PLAYER]->m_hand->m_cards[1]->m_rank = RANK_ACE;
-
 		DisplayGameInformation(_game);
 	}
 
