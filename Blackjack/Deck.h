@@ -74,7 +74,7 @@ namespace blackjack
 	void ShuffleDeck(Deck* _deck);
 
 	/// <summary>
-	/// Swap the positions of two cards in memory.
+	/// Swap the addresses of two card pointers.
 	/// </summary>
 	/// <param name="_a">A card to be swapped.</param>
 	/// <param name="_b">A card to be swapped.</param>
