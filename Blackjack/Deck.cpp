@@ -67,7 +67,7 @@ namespace blackjack
 	}
 
 
-	auto ShuffleDeck(Deck* _deck, const int _min, const int _max) -> void
+	void ShuffleDeck(Deck* _deck, const int _min, const int _max)
 	{
 		// A very simple shuffle. Every card in the deck gets swapped at least once, so it's effective enough for our purposes.
 		for (auto cardIndex = _min; cardIndex < _max; cardIndex++)
